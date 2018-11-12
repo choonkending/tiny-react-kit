@@ -1,0 +1,35 @@
+{
+  "name": "tiny-react-kit",
+  "version": "0.0.1",
+  "description": "A tiny starter kit for a minimal website",
+  "main": "index.js",
+  "repository": "git@github.com:choonkending/tiny-react-kit.git",
+  "author": "Ken Ding <aenkil@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config build/webpack.client.config.js && webpack --config build/webpack.server.config.js",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "express": "^4.16.4",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "serve-static": "^1.13.2",
+    "styled-components": "^4.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-styled-components": "^1.8.0",
+    "flow-bin": "^0.86.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
