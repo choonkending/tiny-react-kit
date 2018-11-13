@@ -1,11 +1,13 @@
 /* @flow */
 import React from 'react';
-import styled from 'styled-components';
+import { Router } from '@reach/router';
+import { Home, Details } from './screens';
 
-const Section = styled.h1`
-  color: white;
-  background: ${props => props.background};
-`
-const App = () => <Section background="cornflowerblue">I am a tiny react starter kit</Section>;
+const App = () => (
+  <Router>
+    <Home path="/" />
+    <Details path="details" />
+  </Router>
+);
 
 export default App;

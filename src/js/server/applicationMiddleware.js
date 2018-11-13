@@ -2,7 +2,7 @@
 import renderToStream from './renderToStream';
 
 const applicationMiddleware = (req: *, res: *) => {
-  renderToStream().pipe(res);
+  renderToStream(req).pipe(res);
 };
 
 export default applicationMiddleware;
