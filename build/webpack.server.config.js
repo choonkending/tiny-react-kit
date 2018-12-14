@@ -7,6 +7,7 @@ module.exports = {
   entry: './src/js/server/index.js',
   context: path.resolve(__dirname, '..'),
   output: {
+    publicPath: '/static/',
     path: path.resolve(__dirname, "../dist"),
     filename: "server.js"
   },
@@ -14,6 +15,15 @@ module.exports = {
     rules: [
       {
         test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'
+      },
+      {
+        test: /\.(png|jpeg|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
       }
     ]
   },
