@@ -1,3 +1,3 @@
 /* @flow */
-export { default as Home } from './Home';
-export { default as Details } from './Details';
+export { default as Home } from './home';
+export { default as Details } from './details';

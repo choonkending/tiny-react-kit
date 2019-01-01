@@ -3,20 +3,23 @@ import React from 'react';
 import { renderToNodeStream } from 'react-dom/server';
 import { ServerLocation } from '@reach/router';
 import styled, { ServerStyleSheet } from 'styled-components';
+import { HelmetProvider } from 'react-helmet-async';
 import App from '../App';
-import Html from './Html';
+import createMarkupStream from './createMarkupStream';
 
 const renderToStream = (req: *) => {
+  const helmetContext = {};
   const sheet = new ServerStyleSheet();
   const screen = sheet.collectStyles(
     <ServerLocation url={req.url}>
-      <Html scriptSrc={"/static/main.js"}>
+      <HelmetProvider context={helmetContext}>
         <App />
-      </Html>
+      </HelmetProvider>
     </ServerLocation>
   );
 
-  return sheet.interleaveWithNodeStream(renderToNodeStream(screen));
+  const addMarkup = createMarkupStream(helmetContext);
+  return sheet.interleaveWithNodeStream(renderToNodeStream(screen)).pipe(addMarkup);
 };
 
 export default renderToStream;
